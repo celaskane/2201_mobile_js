@@ -1,22 +1,44 @@
-//1 + 2 + ... + n-1 + n
-function calculoDemorado (n){
-    let p = new Promise((resolve, reject) => {
-        if (n < 0){
+function calculoRapidinho (n){
+    return Promise.resolve((n * (n + 1)) / 2 )
+}
+
+function f (n){
+    return new Promise((resolve, reject) => {
+        if(n<0){
             reject('Somente valores positivos')
         }
         else{
-            let res = 0
-            for (let i = 1; i<=n; i++)
-                res += i
+            res = (n * (n + 1)) / 2
             resolve(res)
         }
     })
-    return p
 }
 
-calculoDemorado(10).then((res) => {
-    console.log("Ok, deu certo: " + res)
-})
+calculoRapidinho(10).then (res => console.log (res))
+
+//1 + 2 + ... + n-1 + n
+//function calculoDemorado (n){
+//    let p = new Promise((resolve, reject) => {
+//        if (n < 0){
+//            reject('Somente valores positivos')
+//        }
+//        else{
+//            let res = 0
+//            for (let i = 1; i<=n; i++)
+//                res += i
+//            resolve(res)
+//        }
+//    })
+//    return p
+//}
+//
+//calculoDemorado(-10)
+//.then((res) => {
+//    console.log("Ok, deu certo: " + res)
+//})
+//.catch (erro => {
+//    console.log("Falhou: " + erro)
+//})
 
 //const resultadoFuturo = calculoDemorado(10)
 //resultadoFuturo.then ((res) => console.log(res))
