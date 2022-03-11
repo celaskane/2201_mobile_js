@@ -1,10 +1,25 @@
 //1 + 2 + ... + n-1 + n
 function calculoDemorado (n){
     let p = new Promise((resolve, reject) => {
-
+        if (n < 0){
+            reject('Somente valores positivos')
+        }
+        else{
+            let res = 0
+            for (let i = 1; i<=n; i++)
+                res += i
+            resolve(res)
+        }
     })
     return p
 }
+
+calculoDemorado(10).then((res) => {
+    console.log("Ok, deu certo: " + res)
+})
+
+//const resultadoFuturo = calculoDemorado(10)
+//resultadoFuturo.then ((res) => console.log(res))
 
 //function exemplo (){
 //    let p = new Promise(function(resolve, reject){
